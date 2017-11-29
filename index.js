@@ -3,7 +3,7 @@ const google = require('googleapis');
 const co = require('co');
 const fetch = require('node-fetch');
 // eslint-disable-next-line import/no-extraneous-dependencies
-const {BrowserWindow} = require('electron');
+const {BrowserWindow} = require('electron').remote;
 
 const OAuth2 = google.auth.OAuth2;
 
