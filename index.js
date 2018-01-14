@@ -26,14 +26,12 @@ function authorizeApp(url, browserWindowParams) {
 	return new Promise((resolve, reject) => {
 		const win = new BrowserWindow(browserWindowParams || {'use-content-size': true});
 
-		win.loadURL(url);
-
 		win.on('closed', () => {
 			reject(new Error('User closed the window'));
 		});
 
 		win.on('page-title-updated', () => {
-			setImmediate(() => {
+			setTimeout(() => {
 				const title = win.getTitle();
 				if (title.startsWith('Denied')) {
 					reject(new Error(title.split(/[ =]/)[2]));
@@ -44,8 +42,10 @@ function authorizeApp(url, browserWindowParams) {
 					win.removeAllListeners('closed');
 					win.close();
 				}
-			});
+			}, 0);
 		});
+
+		win.loadURL(url);
 	});
 }
 
