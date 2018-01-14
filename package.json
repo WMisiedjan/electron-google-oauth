@@ -9,7 +9,7 @@
     "oauth2"
   ],
   "repository": "parro-it/electron-google-oauth",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "bin": {
     "ego": "bin.js"
   },
@@ -24,7 +24,7 @@
     "bin.js",
     "index.js"
   ],
-  "author": "parro-it",
+	"author": "parro-it",
   "scripts": {
     "test": "xo",
     "start": "electron bin.js --scopes https://www.google.com/m8/feeds --clientId $CLIENTID --clientSecret $CLIENTSECRET"
